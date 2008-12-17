@@ -1,4 +1,5 @@
 IO SCGI
+=======
 
 SCGI is a CGI replacement that is just as fast as FastCGI, but simpler to
 implement. Most modern web servers support this protocol. Read about it at:
@@ -9,7 +10,15 @@ implement. Most modern web servers support this protocol. Read about it at:
 This is a small implementation of the SCGI protocol for Io, which allows you
 to write blazing-fast internet applications.
 
+WHAT'S NEW
+==========
+
+This is a very early release, with only extremely minimal functionality. The
+goal is to one day turn use this as a base for an Io web framework, but for
+now it's a proof-of-concept.
+
 HOWTO
+=====
 
 LIGHTTPD
 		
@@ -36,4 +45,6 @@ Finally, set up your SCGI server. A bare-bones implementation is packaged in
 example.io. To start it up, just cd to its directory and run it. After you
 run it, go to http://your.web.host/your-scgi-app, and you should see a nice
 message. If you have, everything is working fine.
+
+Justin Poliey <jdp34@njit.edu> 2008
 
