@@ -1,0 +1,39 @@
+IO SCGI
+
+SCGI is a CGI replacement that is just as fast as FastCGI, but simpler to
+implement. Most modern web servers support this protocol. Read about it at:
+
+	http://www.mems-exchange.org/software/scgi/
+	http://python.ca/scgi/
+	
+This is a small implementation of the SCGI protocol for Io, which allows you
+to write blazing-fast internet applications.
+
+HOWTO
+
+LIGHTTPD
+		
+Lighttpd comes packaged with a mod_scgi. Open your lighttpd.conf and add
+mod_scgi to your server.modules. It's not in the list by default, so don't get
+scared when you notice it's not one of the commented out modules. Just add it.
+
+Then add this to your config:
+
+scgi.server = (
+        "/your-scgi-app" => (
+                "localhost" => (
+                        "host" => "127.0.0.1",
+                        "port" => 4000,
+                        "check-local" => "disable"
+                )
+        )
+)
+
+Where /your-scgi-app is the directory on your document root that you want to
+serve SCGI applications from.
+
+Finally, set up your SCGI server. A bare-bones implementation is packaged in
+example.io. To start it up, just cd to its directory and run it. After you
+run it, go to http://your.web.host/your-scgi-app, and you should see a nice
+message. If you have, everything is working fine.
+
