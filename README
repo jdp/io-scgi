@@ -20,7 +20,7 @@ now it's a proof-of-concept.
 HOWTO
 =====
 
-LIGHTTPD
+USE WITH LIGHTTPD
 		
 Lighttpd comes packaged with a mod_scgi. Open your lighttpd.conf and add
 mod_scgi to your server.modules. It's not in the list by default, so don't get
@@ -29,13 +29,13 @@ scared when you notice it's not one of the commented out modules. Just add it.
 Then add this to your config:
 
 scgi.server = (
-        "/your-scgi-app" => (
-                "localhost" => (
-                        "host" => "127.0.0.1",
-                        "port" => 4000,
-                        "check-local" => "disable"
-                )
-        )
+	"/your-scgi-app" => (
+		"localhost" => (
+			"host" => "127.0.0.1",
+			"port" => 4000,
+			"check-local" => "disable"
+		)
+	)
 )
 
 Where /your-scgi-app is the directory on your document root that you want to

@@ -2,7 +2,13 @@
 # A simple SCGI server for Io
 # Copyright (c) 2008 Justin Poliey <jdp34@njit.edu>
 
-SCGIServer := Server clone do (
+SCGIServer := Server clone do(
+
+	# Just won't work without it, see TODO
+	init := method()
+	
+	# Default port is 4000
+	setPort(4000)
 	
 	# The class that will handle incoming requests
 	handler := SCGIHandler
@@ -17,5 +23,5 @@ SCGIServer := Server clone do (
 # Start a bare-bones SCGI server
 if (isLaunchScript,
 	write("--Skeleton SCGIServer server started\n")
-	SCGIServer setPort(4000) start
+	SCGIServer start
 )
